@@ -18,7 +18,7 @@ export const goods = [
 export const App = () => {
   const [selectedGood, setSelectedGood] = useState('Jam');
 
-  const toggleGood = good => {
+  const handleSelectGood = good => {
     if (selectedGood === good) {
       setSelectedGood(null);
     } else {
@@ -49,6 +49,7 @@ export const App = () => {
               <tr
                 data-cy="Good"
                 className={isSelected ? 'has-background-success-light' : ''}
+                key={n}
               >
                 <td>
                   <button
@@ -56,7 +57,7 @@ export const App = () => {
                     type="button"
                     className={isSelected ? 'button is-info' : 'button'}
                     key={n}
-                    onClick={() => toggleGood(n)}
+                    onClick={() => handleSelectGood(n)}
                   >
                     {isSelected ? '-' : '+'}
                   </button>
